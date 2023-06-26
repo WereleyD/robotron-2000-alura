@@ -1,28 +1,22 @@
-/*
-const robotron = document.querySelector("#robotron");
-
-robotron.addEventListener("click", () => { // funcao anonima - arrow function
-    //dizOi();
-    dizOi("Josnei"); //funcao com parametro
-});
-
-function dizOi(nome) {
-    console.log(`Oi ${nome}`);
-}
-
-dizOi("Wesley");
-*/
-
 const subtrair = document.querySelector("#subtrair");
 const somar = document.querySelector("#somar");
-const braco = document.querySelector("#braco");
 
-somar.addEventListener("click", () => {
-    braco.value = Number(braco.value) + 1;
-})
 
-subtrair.addEventListener("click", () => {
-    braco.value = Number(braco.value) - 1;
-})
+const controle = document.querySelectorAll(".controle-ajuste");
 
+controle.forEach((element) => {
+    element.addEventListener("click", (evento) =>{
+        manipulaDados(evento.target.dataset.controle, evento.target.parentNode);
+    })
+});
+
+function manipulaDados(operacao, controle) {
+    const peca = controle.querySelector("[data-contador]");
+
+    if(operacao === "-") {
+        peca.value = parseInt(peca.value) - 1;
+    } else {
+        peca.value = parseInt(peca.value) + 1;
+    }
+}
 
