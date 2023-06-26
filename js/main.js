@@ -24,3 +24,5 @@ somar.addEventListener("click", () => {
 subtrair.addEventListener("click", () => {
     braco.value = Number(braco.value) - 1;
 })
+
+
